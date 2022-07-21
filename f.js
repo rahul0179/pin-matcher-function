@@ -2,13 +2,19 @@ function getPin() {
     const pin = Math.round(Math.random() * 10000);
     const pinString = pin + '';
     if (pinString.length == 4) {
+
         return pin;
     }
     else {
         // console.log('got 3 degit and colling again', pin)
         return getPin();
     }
+
+
+
 }
+
+
 
 
 function generatePin() {
@@ -18,6 +24,7 @@ function generatePin() {
 
 
 }
+
 document.getElementById("key-pad").addEventListener('click', function (event) {
     const number = event.target.innerText;
     const calcInput = document.getElementById("typePin");
@@ -37,7 +44,13 @@ document.getElementById("key-pad").addEventListener('click', function (event) {
 
 
 })
+document.getElementById("generatePin").addEventListener('click', function () {
 
+    let g = generatePin();
+
+
+
+})
 
 
 
@@ -46,11 +59,15 @@ function verifyPin() {
     const typePin = document.getElementById("typePin").value;
     const right = document.getElementById('right');
     const wrong = document.getElementById('wrong');
+
+
     if (getPin == typePin) {
 
         console.log('pin matched');
         right.style.display = 'block';
         wrong.style.display = 'none';
+        document.getElementById('jolo').innerText = 3;
+
 
     }
     else {
@@ -58,4 +75,38 @@ function verifyPin() {
         wrong.style.display = 'block';
         right.style.display = 'none';
     }
+
+
 }
+
+function jolo() {
+    let t = document.getElementById('jolo');
+
+    let trText = t.innerText;
+
+    let input = parseInt(trText);
+
+
+    if (input > 0) {
+        let previousInput = input;
+        let newInput = previousInput - 1;
+        t.innerText = newInput;
+    }
+    else {
+        document.getElementById("inputShow").value = '';
+        document.getElementById('jolo').innerHTML = 3;
+
+    }
+
+
+
+
+}
+
+document.getElementById('submit').addEventListener('click', function () {
+
+    const verify = verifyPin();
+    const j = jolo();
+
+
+})
