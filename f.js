@@ -2,7 +2,7 @@ function getPin() {
     const pin = Math.round(Math.random() * 10000);
     const pinString = pin + '';
     if (pinString.length == 4) {
-
+        document.getElementById('jolo').innerText = "3";
         return pin;
     }
     else {
@@ -59,6 +59,7 @@ function verifyPin() {
     const typePin = document.getElementById("typePin").value;
     const right = document.getElementById('right');
     const wrong = document.getElementById('wrong');
+    const molo = document.getElementById("jolo");
 
 
     if (getPin == typePin) {
@@ -66,7 +67,8 @@ function verifyPin() {
         console.log('pin matched');
         right.style.display = 'block';
         wrong.style.display = 'none';
-        document.getElementById('jolo').innerText = "4";
+        document.getElementById('jolo').innerText = "3";
+
 
     }
     else {
@@ -79,19 +81,22 @@ function verifyPin() {
 }
 
 function jolo() {
-    let t = document.getElementById('jolo');
+    const t = document.getElementById('jolo');
 
-    let trText = t.innerText;
-    console.log(trText);
-    let input = parseInt(trText);
+    const trText = t.innerText;
+
+    const input = parseInt(trText);
     console.log(input);
 
-    if (input > 0) {
-        let previousInput = input;
-        let newInput = previousInput - 1;
+    if (input <= 3 && input > 1) {
+        const previousInput = input;
+        console.log(previousInput);
+        const newInput = previousInput - 1;
+        console.log(newInput);
         t.innerText = newInput;
     }
-    else {
+    else if (input <= 1) {
+
         document.getElementById("inputShow").value = '';
         document.getElementById('jolo').innerText = "3";
 
