@@ -66,8 +66,7 @@ function verifyPin() {
         console.log('pin matched');
         right.style.display = 'block';
         wrong.style.display = 'none';
-        document.getElementById('jolo').innerText = 3;
-
+        document.getElementById('jolo').innerText = "4";
 
     }
     else {
@@ -83,9 +82,9 @@ function jolo() {
     let t = document.getElementById('jolo');
 
     let trText = t.innerText;
-
+    console.log(trText);
     let input = parseInt(trText);
-
+    console.log(input);
 
     if (input > 0) {
         let previousInput = input;
@@ -94,7 +93,7 @@ function jolo() {
     }
     else {
         document.getElementById("inputShow").value = '';
-        document.getElementById('jolo').innerHTML = 3;
+        document.getElementById('jolo').innerText = "3";
 
     }
 
@@ -106,7 +105,7 @@ function jolo() {
 document.getElementById('submit').addEventListener('click', function () {
 
     const verify = verifyPin();
-    const j = jolo();
+    let j = jolo();
 
 
 })
